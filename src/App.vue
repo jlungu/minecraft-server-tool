@@ -17,7 +17,7 @@
             <router-link class="nav-link" to='/download'>Download</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Instructions</a>
+            <router-link class="nav-link" to='/instructions'>Instructions</router-link>
           </li>
         </ul>
       </div>
@@ -40,6 +40,7 @@ export default {
   color: #dddddd;
   background-color: #2b3035;
   margin-top: 0px;
+  font-family: 'Open Sans', sans-serif;
 }
 #src_logo{
   height: 10%;
