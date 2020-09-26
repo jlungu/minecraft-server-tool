@@ -1,9 +1,10 @@
 <template>
   <div class="hello">
+    <br>
     <img alt="Vue logo" src="../assets/creeper.png" id="src_logo">
-    <h1>WHAT THE FUCK</h1>
+    <h1>Easy MC Server</h1>
     <hr />
-    <h4 id="minecraft_simple">Download your own Minecraft server,<br> ready to roll</h4>
+    <h4 id="minecraft_simple">Configure, download, and install your very own Minecraft server in a matter of seconds</h4>
     <button @click="$router.push('download')" type="button" class="btn btn-success btn-lg">Get Started</button>
   </div>
 </template>
