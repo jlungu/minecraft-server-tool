@@ -1,13 +1,14 @@
 <template>
   <div class="hello">
     <br>
-    <img alt="Vue logo" src="../assets/grass.png" id="src_logo">
+    <img alt="Vue logo" src="../assets/grass.png" id="src_logo_1">
     <img alt="Vue logo" src="../assets/creeper.png" id="src_logo">
     <img alt="Vue logo" src="../assets/wood.png" id="src_logo">
     <h1>Easy MC Server</h1>
     <hr />
     <h4 id="minecraft_simple">Configure, download, and install your very own Minecraft server in a matter of seconds</h4>
     <button @click="$router.push('download')" type="button" class="btn btn-success btn-lg">Get Started</button>
+    <a href="https://github.com/jlungu/minecraft-server-tool" id="sources">Image Sources Located Here</a>
   </div>
 </template>
 
@@ -57,5 +58,10 @@ hr {
   margin-top: 2%;
   line-height: 1.4;
   margin-bottom: 1.5%;
+}
+#sources{
+  display: block;
+  margin-top: 10%;
+  font-size: 12px;
 }
 </style>

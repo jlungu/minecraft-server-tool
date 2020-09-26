@@ -1,9 +1,5 @@
 <template>
   <div id="app">
-    <!-- <nav>
-        <router-link to='/'>Home</router-link>
-        <router-link to='/download'>Download</router-link>
-    </nav> -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -46,6 +42,14 @@ export default {
   height: 10%;
   width: 10%;
   margin-bottom: 2%;
+  margin-right: 2%;
+  display: inline-block;
+}
+#src_logo_1{
+  height: 10%;
+  width: 10%;
+  margin-bottom: 2%;
+  margin-left: 2%;
   margin-right: 2%;
   display: inline-block;
 }

@@ -29,6 +29,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
 h3 {
   margin: 40px 0 0;
   margin-bottom: 10px;
@@ -57,5 +65,7 @@ hr {
 .instructions{
     width: 70%;
     display: inline-block;
+    -webkit-animation: fadeIn 1.7s;
+    animation: fadeIn 1.7s;
 }
 </style>
