@@ -1,8 +1,11 @@
 <template>
 <div class="download_div">
     <br>
-    <h1>Download</h1>
-    <h5>Select Server Properties</h5>
+     <img alt="Vue logo" src="../assets/pickaxe.png" id="download_icon_pick">
+    <h1 style="display: inline-block">Download</h1>
+     <img alt="Vue logo" src="../assets/axe.png" id="download_icon_axe">
+    <hr />
+    <h4>Select Server Properties</h4>
 
     <form>
         <div class="row form">
@@ -112,7 +115,7 @@
             <div class="col-sm-2"></div>
         </div>
         <div class="advanced_options col-md-12">
-            <button class="btn" @click="toggleAdvanced" id="advanced_btn">Advanced Options</button>
+            <button type="button" @click="toggleAdvanced" class="btn" id="advanced_btn">Advanced Options</button>
             <div class="col-sm-12" style="margin-top: 2%; margin-bottom: 2%;" id="advanced_div" hidden>
                 <div class="row">
                     <div class="col-sm-2"></div>
@@ -255,7 +258,7 @@
             </div>
         </div>
         
-        <button  type="button" @click="save" class="btn btn-success btn-lg" style="margin-bottom: 2%;">Download</button>
+        <button type="button" @click="save" class="btn btn-success btn-lg" style="margin-bottom: 2%;">Download</button>
     </form>
 </div>
 </template>
@@ -497,6 +500,7 @@ export default {
     animation: fadeIn 2s;
 }
 #advanced_btn{
+    margin-bottom: 1%;
     transition: 0.3s ease all;
     color: #dddddd;
     background-color: #2b3035;
@@ -504,7 +508,6 @@ export default {
 #advanced_btn:hover{
     transition: 0.3s ease all;
     background-color: #464b50;
-    
 }
 #advanced_div{
     -webkit-animation: fadeIn 0.6s;
@@ -545,5 +548,28 @@ input{
 }
 .form-check-input{
     scale: 130%;
+}
+#download_icon_pick{
+    height: 5.5%;
+    width: 5.5%;
+    margin-bottom: 2%;
+    margin-right: 2%;
+    display: inline-block;
+}
+#download_icon_axe{
+    height: 10%;
+    width: 10%;
+    margin-right: -2%;
+    margin-bottom: 2%;
+    display: inline-block;
+}
+hr {
+  margin-top: -0.5%;
+  margin-bottom: 2%;
+  background-color: #dddddd;
+  width: 20%;
+}
+input{
+    text-align: center;
 }
 </style>

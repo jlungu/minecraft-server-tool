@@ -1,7 +1,9 @@
 <template>
   <div class="hello">
     <br>
+    <img alt="Vue logo" src="../assets/grass.png" id="src_logo">
     <img alt="Vue logo" src="../assets/creeper.png" id="src_logo">
+    <img alt="Vue logo" src="../assets/wood.png" id="src_logo">
     <h1>Easy MC Server</h1>
     <hr />
     <h4 id="minecraft_simple">Configure, download, and install your very own Minecraft server in a matter of seconds</h4>

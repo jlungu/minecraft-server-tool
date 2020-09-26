@@ -4,7 +4,7 @@
         <router-link to='/'>Home</router-link>
         <router-link to='/download'>Download</router-link>
     </nav> -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -45,6 +45,15 @@ export default {
   height: 10%;
   width: 10%;
   margin-bottom: 2%;
+  margin-right: 2%;
+  display: inline-block;
 }
-
+#navbar{
+  text-align: center;
+}
+hr {
+  margin-top: 2%;
+  background-color: #dddddd;
+  width: 20%;
+}
 </style>
