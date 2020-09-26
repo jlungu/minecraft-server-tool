@@ -17,7 +17,7 @@
             <router-link class="nav-link" to='/download'>Download</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Help</a>
+            <a class="nav-link" href="#">Instructions</a>
           </li>
         </ul>
       </div>

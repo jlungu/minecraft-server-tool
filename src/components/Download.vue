@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="hardcore option">
-                    <h4>Hardcore?</h4>
+                    <h4>Hardcore</h4>
                     <div class="form-check-inline">
                         <input class="form-check-input" type="radio" name="hardcoreRatios" id="Yes" value="option1">
                         <label class="form-check-label" for="exampleRadios2">
@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="pvp option">
-                    <h4>PvP?</h4>
+                    <h4>PvP</h4>
                     <div class="form-check-inline">
                         <input class="form-check-input" type="radio" name="pvpRadios" id="Yes" value="option2">
                         <label class="form-check-label" for="exampleRadios2">
@@ -255,7 +255,7 @@
             </div>
         </div>
         
-        <button  type="button" @click="save" class="btn btn-success btn-lg" style="margin-top: 1%;">Download!</button>
+        <button  type="button" @click="save" class="btn btn-success btn-lg" style="margin-bottom: 2%;">Download</button>
     </form>
 </div>
 </template>
@@ -542,5 +542,8 @@ input{
 }
 .advanced_checkbox{
     margin-bottom: 2%;
+}
+.form-check-input{
+    scale: 130%;
 }
 </style>
