@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="download_div">
     <br>
     <h1>Download</h1>
     <h5>Select Server Properties</h5>
@@ -112,8 +112,8 @@
             <div class="col-sm-2"></div>
         </div>
         <div class="advanced_options col-md-12">
-            Advanced Options
-            <div class="col-sm-12" style="margin-top: 2%; margin-bottom: 2%;">
+            <button class="btn" @click="toggleAdvanced" id="advanced_btn">Advanced Options</button>
+            <div class="col-sm-12" style="margin-top: 2%; margin-bottom: 2%;" id="advanced_div" hidden>
                 <div class="row">
                     <div class="col-sm-2"></div>
                     <div class="col-sm-4">
@@ -268,6 +268,7 @@ export default {
   },
   data: function() {
       return{
+            advanced: false,
             serverMessage: "Welcome to my server!",
             maxPlayers: 20,
             gamemode: "easy",
@@ -311,6 +312,9 @@ export default {
             document.body.removeChild(elem);
         }
     },
+      toggleAdvanced: function(){
+        document.getElementById("advanced_div").hidden = !document.getElementById("advanced_div").hidden
+      },
       formatData: function(){
           // doing the parsing for each field in the form.
           let data = '# Declare Variables\n$folderName = "Test Folder" \n$maxRAM = "2"\n$spawnProtection = "'
@@ -480,6 +484,32 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+.download_div{
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+}
+#advanced_btn{
+    transition: 0.3s ease all;
+    color: #dddddd;
+    background-color: #2b3035;
+}
+#advanced_btn:hover{
+    transition: 0.3s ease all;
+    background-color: #464b50;
+    
+}
+#advanced_div{
+    -webkit-animation: fadeIn 0.6s;
+    animation: fadeIn 0.6s;
+}
 input{
     display: inline-block;
 }

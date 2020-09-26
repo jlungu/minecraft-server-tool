@@ -20,6 +20,18 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+.hello{
+    -webkit-animation: fadeIn 1.5s;
+    animation: fadeIn 1.5s;
+}
 h3 {
   margin: 40px 0 0;
 }
