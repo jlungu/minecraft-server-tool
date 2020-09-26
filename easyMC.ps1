@@ -86,6 +86,8 @@ Write-Progress -Activity "Setting server properties..." -Status "$i% Complete:" 
 Write-Progress -Activity "Setting server properties..." -Status "$i% Complete:" -PercentComplete 18.18;
 (Get-Content .\$folderName\server.properties).Replace("gamemode=survival","gamemode=$gamemode") | Out-File .\$folderName\server.properties
 Write-Progress -Activity "Setting server properties..." -Status "$i% Complete:" -PercentComplete 22.72;
+(Get-Content .\$folderName\server.properties).Replace("broadcast-console-to-ops=true","broadcast-console-to-ops=$broadcastConsoleOp") | Out-File .\$folderName\server.properties
+Write-Progress -Activity "Setting server properties..." -Status "$i% Complete:" -PercentComplete 24.50;
 (Get-Content .\$folderName\server.properties).Replace("player-idle-timeout=0","player-idle-timeout=$playerTimeout") | Out-File .\$folderName\server.properties
 Write-Progress -Activity "Setting server properties..." -Status "$i% Complete:" -PercentComplete 27.27;
 (Get-Content .\$folderName\server.properties).Replace("difficulty=easy","difficulty=$difficulty") | Out-File .\$folderName\server.properties
