@@ -1,8 +1,11 @@
 <template>
-<div>
+<div class="download_div">
     <br>
-    <h1>Download</h1>
-    <h5>Select Server Properties</h5>
+     <img alt="Vue logo" src="../assets/pickaxe.png" id="download_icon_pick">
+    <h1 style="display: inline-block">Download</h1>
+     <img alt="Vue logo" src="../assets/axe.png" id="download_icon_axe">
+    <hr />
+    <h4>Select Server Properties</h4>
 
     <form>
         <div class="row form">
@@ -112,8 +115,8 @@
             <div class="col-sm-2"></div>
         </div>
         <div class="advanced_options col-md-12">
-            Advanced Options
-            <div class="col-sm-12" style="margin-top: 2%; margin-bottom: 2%;">
+            <button type="button" @click="toggleAdvanced" class="btn" id="advanced_btn">Advanced Options</button>
+            <div class="col-sm-12" style="margin-top: 2%; margin-bottom: 2%;" id="advanced_div" hidden>
                 <div class="row">
                     <div class="col-sm-2"></div>
                     <div class="col-sm-4">
@@ -255,7 +258,7 @@
             </div>
         </div>
         
-        <button  type="button" @click="save" class="btn btn-success btn-lg" style="margin-bottom: 2%;">Download</button>
+        <button type="button" @click="save" class="btn btn-success btn-lg" style="margin-bottom: 2%;">Download</button>
     </form>
 </div>
 </template>
@@ -268,6 +271,7 @@ export default {
   },
   data: function() {
       return{
+            advanced: false,
             serverMessage: "Welcome to my server!",
             maxPlayers: 20,
             gamemode: "easy",
@@ -311,6 +315,9 @@ export default {
             document.body.removeChild(elem);
         }
     },
+      toggleAdvanced: function(){
+        document.getElementById("advanced_div").hidden = !document.getElementById("advanced_div").hidden
+      },
       formatData: function(){
           // doing the parsing for each field in the form.
           let data = '# Declare Variables\n$folderName = "Test Folder" \n$maxRAM = "2"\n$spawnProtection = "'
@@ -480,6 +487,32 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+.download_div{
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+}
+#advanced_btn{
+    margin-bottom: 1%;
+    transition: 0.3s ease all;
+    color: #dddddd;
+    background-color: #2b3035;
+}
+#advanced_btn:hover{
+    transition: 0.3s ease all;
+    background-color: #464b50;
+}
+#advanced_div{
+    -webkit-animation: fadeIn 0.6s;
+    animation: fadeIn 0.6s;
+}
 input{
     display: inline-block;
 }
@@ -515,5 +548,28 @@ input{
 }
 .form-check-input{
     scale: 130%;
+}
+#download_icon_pick{
+    height: 5.5%;
+    width: 5.5%;
+    margin-bottom: 2%;
+    margin-right: 2%;
+    display: inline-block;
+}
+#download_icon_axe{
+    height: 10%;
+    width: 10%;
+    margin-right: -2%;
+    margin-bottom: 2%;
+    display: inline-block;
+}
+hr {
+  margin-top: -0.5%;
+  margin-bottom: 2%;
+  background-color: #dddddd;
+  width: 20%;
+}
+input{
+    text-align: center;
 }
 </style>

@@ -1,7 +1,9 @@
 <template>
   <div class="hello">
     <br>
+    <img alt="Vue logo" src="../assets/grass.png" id="src_logo">
     <img alt="Vue logo" src="../assets/creeper.png" id="src_logo">
+    <img alt="Vue logo" src="../assets/wood.png" id="src_logo">
     <h1>Easy MC Server</h1>
     <hr />
     <h4 id="minecraft_simple">Configure, download, and install your very own Minecraft server in a matter of seconds</h4>
@@ -20,6 +22,18 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+.hello{
+    -webkit-animation: fadeIn 1.5s;
+    animation: fadeIn 1.5s;
+}
 h3 {
   margin: 40px 0 0;
 }
