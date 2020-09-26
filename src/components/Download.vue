@@ -112,36 +112,142 @@
         </div>
         <div class="advanced_options col-md-12">
             Advanced Options
-            <div class="col-sm-12">
+            <div class="col-sm-12" style="margin-top: 2%; margin-bottom: 2%;">
                 <div class="row">
                     <div class="col-sm-2"></div>
                     <div class="col-sm-4">
+                        <div class="col-sm-12" style="text-align: center;">
+                            <div class="level_seed option">
+                                <h4>Level Seed</h4>
+                                <div class="form-group col-sm-10" id="level_seed_input" style="display: inline-block;">
+                                    <label for="inputZip"></label>
+                                    <input type="text" @input="updateLevelSeed" class="form-control" id="level_seed">
+                                </div>
+                            </div>
+                            <div class="option">
+                                <h4>Max Build Height</h4>
+                                <div class="form-group col-md-4" id="max_build_height_input" style="display: inline-block;">
+                                    <label for="inputZip"></label>
+                                    <input type="text" @input="updateMaxBuildHeight" class="form-control" id="max_build_height" value="255">
+                                </div>
+                            </div>
+                            <div class="option">
+                                <h4>Player Idle</h4>
+                                <div class="form-group col-md-3" id="player_idle_input" style="display: inline-block;">
+                                    <label for="inputZip"></label>
+                                    <input type="text" @input="updatePlayerIdle" class="form-control" id="player_idle" value="0">
+                                </div>
+                            </div>
+                            <div class="option">
+                                <h4>View Distance</h4>
+                                <div class="form-group col-md-3" id="view_distance_input" style="display: inline-block;">
+                                    <label for="inputZip"></label>
+                                    <input type="text" @input="updateViewDistance" class="form-control" id="view_distance" value="10">
+                                </div>
+                            </div>
+                        </div>
                         <div class="row" style="text-align: left;">
                             <div class="col-sm-3"></div>
                             <div class="col-sm-8">
                                 <div class="form-check advanced_checkbox">
-                                <input class="form-check-input" type="checkbox" name="gridRadios" id="allow_flight" value="option1" checked>
+                                <input class="form-check-input" type="checkbox" name="gridRadios" id="allow_flight" value="option1" @change="updateAllowFlight">
                                 <label class="form-check-label check_label" for="gridRadios1">
-                                    Allow Flight?
+                                    Allow Flight
                                 </label>
                                 </div>
                                 <div class="form-check advanced_checkbox">
-                                <input class="form-check-input" type="checkbox" name="gridRadios" id="allow_nether" value="option2">
+                                <input class="form-check-input" type="checkbox" name="gridRadios" id="allow_nether" value="option2" checked @change="updateAllowNether">
                                 <label class="form-check-label check_label" for="gridRadios2">
-                                    Allow Nether?
+                                    Allow Nether
                                 </label>
                                 </div>
                                 <div class="form-check advanced_checkbox">
-                                <input class="form-check-input" type="checkbox" name="gridRadios" id="enable_cmd_block" value="option3">
-                                <label class="form-check-label check_label" for="gridRadios3">
-                                    Enable Command Block?
-                                </label>
+                                    <input class="form-check-input" type="checkbox" name="gridRadios" id="enable_cmd_block" value="option3" @change="updateEnableCmdBlock">
+                                    <label class="form-check-label check_label" for="gridRadios3">
+                                        Enable Command Block
+                                    </label>
+                                </div>
+                                <div class="form-check advanced_checkbox">
+                                    <input class="form-check-input" type="checkbox" name="gridRadios" id="force_gamemode" value="option3" @change="updateForceGamemode">
+                                    <label class="form-check-label check_label" for="gridRadios3">
+                                        Force Gamemode
+                                    </label>
+                                </div>
+                                 <div class="form-check advanced_checkbox">
+                                    <input class="form-check-input" type="checkbox" name="gridRadios" id="broadcast_console_op" value="option3" checked @change="updateBroadcastConsoleOp">
+                                    <label class="form-check-label check_label" for="gridRadios3">
+                                        Broadcast Console to OP
+                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        
+                        <div class="col-sm-12" style="text-align: center;">
+                            <div class="option">
+                                <h4>Level Name</h4>
+                                <div class="form-group col-sm-10" id="level_name_input" style="display: inline-block;">
+                                    <label for="inputZip"></label>
+                                    <input type="text" @input="updateLevelName" class="form-control" id="level_name" value="world">
+                                </div>
+                            </div>
+                            <div class="option">
+                                <h4>Max World Size</h4>
+                                <div class="form-group col-md-4" id="max_world_size_input" style="display: inline-block;">
+                                    <label for="inputZip"></label>
+                                    <input type="text" @input="updateMaxWorldSize" class="form-control" id="max_world_size" value="29999984">
+                                </div>
+                            </div>
+                            <div class="option">
+                                <h4>Resource Pack</h4>
+                                <div class="form-group col-sm-10" id="resource_pack_input" style="display: inline-block;">
+                                    <label for="inputZip"></label>
+                                    <input type="text" @input="updateResourcePack" class="form-control" id="resource_pack">
+                                </div>
+                            </div>
+                            <div class="option">
+                                <h4>Spawn Protection</h4>
+                                <div class="form-group col-md-3" id="spawn_protection_input" style="display: inline-block;">
+                                    <label for="inputZip"></label>
+                                    <input type="text" @input="updateSpawnProtection" class="form-control" id="spawn_protection" value="16">
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row" style="text-align: left;">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-8">
+                        <div class="form-check advanced_checkbox">
+                            <input class="form-check-input" type="checkbox" name="gridRadios" id="genereate_structures" value="option3" checked @change='updateGenerateStructures'>
+                            <label class="form-check-label check_label" for="gridRadios3">
+                                Generate Structures
+                            </label>
+                        </div>
+                        <div class="form-check advanced_checkbox">
+                            <input class="form-check-input" type="checkbox" name="gridRadios" id="spawn_monsters" value="option3" checked @change="updateSpawnMonsters">
+                            <label class="form-check-label check_label" for="gridRadios3">
+                                Spawn Monsters
+                            </label>
+                        </div>
+                        <div class="form-check advanced_checkbox">
+                            <input class="form-check-input" type="checkbox" name="gridRadios" id="spawn_animals" value="option3" checked @change="updateSpawnAnimals">
+                            <label class="form-check-label check_label" for="gridRadios3">
+                                Spawn Animals
+                            </label>
+                        </div>
+                        <div class="form-check advanced_checkbox">
+                            <input class="form-check-input" type="checkbox" name="gridRadios" id="spawn_npcs" value="option3" checked @change="updateSpawnNpcs">
+                            <label class="form-check-label check_label" for="gridRadios3">
+                                Spawn NPCs
+                            </label>
+                        </div>
+                         <div class="form-check advanced_checkbox">
+                            <input class="form-check-input" type="checkbox" name="gridRadios" id="enable_status" value="option3" checked @change="updateEnableStatus">
+                            <label class="form-check-label check_label" for="gridRadios3">
+                                Enable Status
+                            </label>
+                        </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-sm-2"></div>
                 </div>
@@ -183,7 +289,8 @@ export default {
             spawnMonsters: 'true',
             spawnNpcs: 'true',
             spawnProtection: 16,
-            viewDistance: 10
+            viewDistance: 10,
+            broadcastConsoleOp: true
       }
   },
   methods: {
@@ -210,7 +317,8 @@ export default {
           data += this.forceGamemode + '"\n$allowNether = "'
           data += this.allowNether + '"\n$enforceWhitelist = "false"\n$gamemode = '
           data += '"'+ this.gamemode + '"'
-          data += '\n$broadcastConsoleOp = "true"\n$enableQuery = "false"\n$playerTimeout = "'
+          data += '\n$broadcastConsoleOp = "'
+          data += this.broadcastConsoleOp + '"\n$enableQuery = "false"\n$playerTimeout = "'
           data += this.playerIdle + '"\n$difficulty = "' + this.difficulty + '"'
           data += '\n$broadcastRconOp = "true"\n$spawnMonsters = "'
           data += this.spawnMonsters + '"\n$opPermissionLevel = "4"\n$pvp = "' + this.pvp + '"'
@@ -358,6 +466,12 @@ export default {
             this.viewDistance = event.target.value;
           else
             document.getElementById("view_distance").value = this.viewDistance
+      },
+      updateBroadcastConsoleOp: function(){
+          if (this.broadcastConsoleOp)
+            this.broadcastConsoleOp = false
+          else
+            this.broadcastConsoleOp = true
       },
   }
 }
