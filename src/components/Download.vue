@@ -319,7 +319,7 @@ export default {
       },
       formatData: function(){
           // doing the parsing for each field in the form.
-          let data = '# Declare Variables\n$folderName = "Test Folder" \n$maxRAM = "2"\n$spawnProtection = "'
+          let data = '# Declare Variables\n$folderName = "Minecraft Server" \n$maxRAM = "2"\n$spawnProtection = "'
           data += this.spawnProtection + '"\n$maxTick = "60000"\n$queryPort = "25565"\n$generatorSettings = ""\n\n$syncChunk = "true"\n$forceGamemode = "'
           data += this.forceGamemode + '"\n$allowNether = "'
           data += this.allowNether + '"\n$enforceWhitelist = "false"\n$gamemode = '
@@ -576,5 +576,32 @@ hr {
 }
 input{
     text-align: center;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 </style>
