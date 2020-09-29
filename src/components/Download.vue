@@ -131,7 +131,7 @@
                                 <h4>Max Build Height</h4>
                                 <div class="form-group col-md-4" id="max_build_height_input" style="display: inline-block;">
                                     <label for="inputZip"></label>
-                                    <input type="text" @input="updateMaxBuildHeight" class="form-control" id="max_build_height" value="255">
+                                    <input type="text" @input="updateMaxBuildHeight" class="form-control" id="max_build_height" value="256">
                                 </div>
                             </div>
                             <div class="option">
