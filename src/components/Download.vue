@@ -319,7 +319,7 @@ export default {
       },
       formatData: function(){
           // doing the parsing for each field in the form.
-          let data = '# Declare Variables\n$folderName = "Minecraft Server" \n$maxRAM = "2"\n$spawnProtection = "'
+          let data = '# Declare Variables\n$folderName = "Minecraft Server" \n$maxRAM = "1"\n$spawnProtection = "'
           data += this.spawnProtection + '"\n$maxTick = "60000"\n$queryPort = "25565"\n$generatorSettings = ""\n\n$syncChunk = "true"\n$forceGamemode = "'
           data += this.forceGamemode + '"\n$allowNether = "'
           data += this.allowNether + '"\n$enforceWhitelist = "false"\n$gamemode = '
