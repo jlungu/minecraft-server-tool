@@ -294,7 +294,7 @@ export default {
             spawnNpcs: 'true',
             spawnProtection: 16,
             viewDistance: 10,
-            broadcastConsoleOp: true
+            broadcastConsoleOp: 'true'
       }
   },
   methods: {
@@ -383,37 +383,37 @@ export default {
            this.pvp = "false"
       },
       updateAllowFlight: function(){
-          if (this.allowFlight == false)
+          if (this.allowFlight == 'false')
            this.allowFlight = true
            else
             this.allowFlight = false
       },
       updateAllowNether: function(){
-          if (this.allowNether == false)
+          if (this.allowNether == 'false')
            this.allowNether = true
            else
             this.allowNether = false
       },
       updateEnableCmdBlock: function(){
-          if (this.enableCmdBlock == false)
+          if (this.enableCmdBlock == 'false')
            this.enableCmdBlock = true
            else
             this.enableCmdBlock = false
       },
       updateEnableStatus: function(){
-          if (this.enableStatus == false)
+          if (this.enableStatus == 'false')
            this.enableStatus = true
            else
             this.enableStatus = false
       },
       updateForceGamemode: function(){
-          if (this.forceGamemode)
+          if (this.forceGamemode != 'false')
             this.forceGamemode = false
           else
             this.forceGamemode = true
       },
       updateGenerateStructures: function(){
-          if (this.generateStructures)
+          if (this.generateStructures != 'false')
             this.generateStructures = false
           else
             this.generateStructures = true
@@ -449,19 +449,19 @@ export default {
           this.resourcePack = event.target.value
       },
       updateSpawnAnimals: function(){
-          if (this.spawnAnimals)
+          if (this.spawnAnimals != 'false')
             this.spawnAnimals = false
           else
             this.spawnAnimals = true
       },
       updateSpawnMonsters: function(){
-          if (this.spawnMonsters)
+          if (this.spawnMonsters != 'false')
             this.spawnMonsters = false
           else
             this.spawnMonsters = true
       },
       updateSpawnNpcs: function(){
-          if (this.spawnNpcs)
+          if (this.spawnNpcs != 'false')
             this.spawnNpcs = false
           else
             this.spawnNpcs = true
@@ -481,7 +481,7 @@ export default {
             document.getElementById("view_distance").value = this.viewDistance
       },
       updateBroadcastConsoleOp: function(){
-          if (this.broadcastConsoleOp)
+          if (this.broadcastConsoleOp != 'false')
             this.broadcastConsoleOp = false
           else
             this.broadcastConsoleOp = true
