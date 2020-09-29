@@ -108,7 +108,7 @@
                     <h4>Server Message</h4>
                     <div class="form-group col-md-8" id="server_mssg">
                         <label for="inputZip"></label>
-                        <input type="text" @input="updateMessage" class="form-control" id="inputZip" value="Welcome to my server!" placeholder="How about a nice greeting?">
+                        <input type="text" @input="updateMessage" class="form-control" id="inputZip" value="A Minecraft Server" placeholder="How about a nice greeting?">
                     </div>
                 </div>
             </div>
@@ -271,7 +271,7 @@ export default {
   data: function() {
       return{
             advanced: false,
-            serverMessage: "Welcome to my server!",
+            serverMessage: "A Minecraft Server",
             maxPlayers: 20,
             gamemode: "easy",
             hardcore: "false",
