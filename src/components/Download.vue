@@ -41,13 +41,13 @@
                 <div class="hardcore option">
                     <h4>Hardcore</h4>
                     <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="hardcoreRatios" id="Yes" value="option1">
+                        <input class="form-check-input" @change="updateHardcore" type="radio" name="hardcoreRatios" id="HCYes" value="option1">
                         <label class="form-check-label" for="exampleRadios2">
                             Yes
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="hardcoreRatios" id="No" value="option2" checked>
+                        <input class="form-check-input" @change="updateHardcore" type="radio" name="hardcoreRatios" id="HCNo" value="option2" checked>
                         <label class="form-check-label" for="exampleRadios2">
                             No
                         </label>
@@ -92,13 +92,13 @@
                 <div class="pvp option">
                     <h4>PvP</h4>
                     <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="pvpRadios" id="Yes" value="option2">
+                        <input class="form-check-input" @change="updatePvp" type="radio" name="pvpRadios" id="PvPYes" value="option2" checked>
                         <label class="form-check-label" for="exampleRadios2">
                             On
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="pvpRadios" id="No" value="option2" checked>
+                        <input class="form-check-input" @change="updatePvp" type="radio" name="pvpRadios" id="PvPNo" value="option2">
                         <label class="form-check-label" for="exampleRadios2">
                             Off
                         </label>
@@ -274,9 +274,9 @@ export default {
             serverMessage: "A Minecraft Server",
             maxPlayers: 20,
             gamemode: "survival",
-            hardcore: "false",
+            hardcore: 'false',
             difficulty: "peaceful",
-            pvp: "false",
+            pvp: 'true',
             allowFlight: 'false',
             allowNether: 'true',
             enableCmdBlock: 'false',
@@ -368,19 +368,19 @@ export default {
            this.gamemode = event.target.id
       },
       updateHardcore: function(event){
-          if (event.target.value == "Yes")
-           this.hardcore = true
-           else
-            this.hardcore = false
+          if (event.target.id == "HCYes")
+           this.hardcore = "true"
+           else if (event.target.id == "HCNo")
+            this.hardcore = "false"
       },
       updateDifficulty: function(event){
            this.difficulty = event.target.id
       },
       updatePvp: function(event){
-          if (event.target.value == "Yes")
-           this.pvp = true
-           else
-            this.pvp = false
+          if (event.target.id == "PvPYes")
+           this.pvp = "true"
+          else if (event.target.id == "PvPNo")
+           this.pvp = "false"
       },
       updateAllowFlight: function(){
           if (this.allowFlight == false)
