@@ -273,7 +273,7 @@ export default {
             advanced: false,
             serverMessage: "A Minecraft Server",
             maxPlayers: 20,
-            gamemode: "easy",
+            gamemode: "survival",
             hardcore: "false",
             difficulty: "peaceful",
             pvp: "false",
