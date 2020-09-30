@@ -20,10 +20,10 @@
 
 <script>
 export default {
-  name: 'home',
+  name: 'instructions',
   props: {
     msg: String
-  }
+  },
 }
 </script>
 
