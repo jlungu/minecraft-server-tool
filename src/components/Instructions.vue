@@ -5,7 +5,7 @@
     <h3>Step 1:</h3>
     <h4>Make sure you have 64bit Java installed on your computer. You can download it <a href="https://javadl.oracle.com/webapps/download/AutoDL?BundleId=242990_a4634525489241b9a9e1aa73d9e118e6" target="_blank">here</a>.</h4>
     <h3>Step 2:</h3>
-    <h4>Navigate to the Download page and select your preferred settings.</h4>
+    <h4>Navigate to the<router-link class="nav-link" to='/download' style="display: inline">Download</router-link>page and select your preferred settings.</h4>
     <h3>Step 3:</h3>
     <h4>Click the "Download" button at the bottom of the page. Save the file into the folder where you want to install the server.</h4>
     <h3>Step 4:</h3>
