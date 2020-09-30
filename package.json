@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "bootstrap": "^4.5.2",
+    "bootstrap-icons": "^1.0.0",
     "core-js": "^3.6.5",
+    "glyphicons": "^0.2.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "vue": "^2.6.11",

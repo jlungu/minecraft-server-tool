@@ -12,7 +12,7 @@
           <li class="nav-item active">
             <router-link class="nav-link" to='/download'>Download</router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <router-link class="nav-link" to='/instructions'>Instructions</router-link>
           </li>
         </ul>

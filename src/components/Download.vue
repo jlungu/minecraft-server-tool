@@ -41,13 +41,13 @@
                 <div class="hardcore option">
                     <h4>Hardcore</h4>
                     <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="hardcoreRatios" id="Yes" value="option1">
+                        <input class="form-check-input" @change="updateHardcore" type="radio" name="hardcoreRatios" id="HCYes" value="option1">
                         <label class="form-check-label" for="exampleRadios2">
                             Yes
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="hardcoreRatios" id="No" value="option2" checked>
+                        <input class="form-check-input" @change="updateHardcore" type="radio" name="hardcoreRatios" id="HCNo" value="option2" checked>
                         <label class="form-check-label" for="exampleRadios2">
                             No
                         </label>
@@ -92,13 +92,13 @@
                 <div class="pvp option">
                     <h4>PvP</h4>
                     <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="pvpRadios" id="Yes" value="option2">
+                        <input class="form-check-input" @change="updatePvp" type="radio" name="pvpRadios" id="PvPYes" value="option2" checked>
                         <label class="form-check-label" for="exampleRadios2">
                             On
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="pvpRadios" id="No" value="option2" checked>
+                        <input class="form-check-input" @change="updatePvp" type="radio" name="pvpRadios" id="PvPNo" value="option2">
                         <label class="form-check-label" for="exampleRadios2">
                             Off
                         </label>
@@ -108,7 +108,7 @@
                     <h4>Server Message</h4>
                     <div class="form-group col-md-8" id="server_mssg">
                         <label for="inputZip"></label>
-                        <input type="text" @input="updateMessage" class="form-control" id="inputZip" value="Welcome to my server!" placeholder="How about a nice greeting?">
+                        <input type="text" @input="updateMessage" class="form-control" id="inputZip" value="A Minecraft Server" placeholder="How about a nice greeting?">
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@
                                 <h4>Max Build Height</h4>
                                 <div class="form-group col-md-4" id="max_build_height_input" style="display: inline-block;">
                                     <label for="inputZip"></label>
-                                    <input type="text" @input="updateMaxBuildHeight" class="form-control" id="max_build_height" value="255">
+                                    <input type="text" @input="updateMaxBuildHeight" class="form-control" id="max_build_height" value="256">
                                 </div>
                             </div>
                             <div class="option">
@@ -271,12 +271,12 @@ export default {
   data: function() {
       return{
             advanced: false,
-            serverMessage: "Welcome to my server!",
+            serverMessage: "A Minecraft Server",
             maxPlayers: 20,
-            gamemode: "easy",
-            hardcore: "false",
+            gamemode: "survival",
+            hardcore: 'false',
             difficulty: "peaceful",
-            pvp: "false",
+            pvp: 'true',
             allowFlight: 'false',
             allowNether: 'true',
             enableCmdBlock: 'false',
@@ -294,7 +294,7 @@ export default {
             spawnNpcs: 'true',
             spawnProtection: 16,
             viewDistance: 10,
-            broadcastConsoleOp: true
+            broadcastConsoleOp: 'true'
       }
   },
   methods: {
@@ -319,7 +319,7 @@ export default {
       },
       formatData: function(){
           // doing the parsing for each field in the form.
-          let data = '# Declare Variables\n$folderName = "Test Folder" \n$maxRAM = "2"\n$spawnProtection = "'
+          let data = '# Declare Variables\n$folderName = "Minecraft Server" \n$maxRAM = "1"\n$spawnProtection = "'
           data += this.spawnProtection + '"\n$maxTick = "60000"\n$queryPort = "25565"\n$generatorSettings = ""\n\n$syncChunk = "true"\n$forceGamemode = "'
           data += this.forceGamemode + '"\n$allowNether = "'
           data += this.allowNether + '"\n$enforceWhitelist = "false"\n$gamemode = '
@@ -368,52 +368,52 @@ export default {
            this.gamemode = event.target.id
       },
       updateHardcore: function(event){
-          if (event.target.value == "Yes")
-           this.hardcore = true
-           else
-            this.hardcore = false
+          if (event.target.id == "HCYes")
+           this.hardcore = "true"
+           else if (event.target.id == "HCNo")
+            this.hardcore = "false"
       },
       updateDifficulty: function(event){
            this.difficulty = event.target.id
       },
       updatePvp: function(event){
-          if (event.target.value == "Yes")
-           this.pvp = true
-           else
-            this.pvp = false
+          if (event.target.id == "PvPYes")
+           this.pvp = "true"
+          else if (event.target.id == "PvPNo")
+           this.pvp = "false"
       },
       updateAllowFlight: function(){
-          if (this.allowFlight == false)
+          if (this.allowFlight == 'false')
            this.allowFlight = true
            else
             this.allowFlight = false
       },
       updateAllowNether: function(){
-          if (this.allowNether == false)
+          if (this.allowNether == 'false')
            this.allowNether = true
            else
             this.allowNether = false
       },
       updateEnableCmdBlock: function(){
-          if (this.enableCmdBlock == false)
+          if (this.enableCmdBlock == 'false')
            this.enableCmdBlock = true
            else
             this.enableCmdBlock = false
       },
       updateEnableStatus: function(){
-          if (this.enableStatus == false)
+          if (this.enableStatus == 'false')
            this.enableStatus = true
            else
             this.enableStatus = false
       },
       updateForceGamemode: function(){
-          if (this.forceGamemode)
+          if (this.forceGamemode != 'false')
             this.forceGamemode = false
           else
             this.forceGamemode = true
       },
       updateGenerateStructures: function(){
-          if (this.generateStructures)
+          if (this.generateStructures != 'false')
             this.generateStructures = false
           else
             this.generateStructures = true
@@ -449,19 +449,19 @@ export default {
           this.resourcePack = event.target.value
       },
       updateSpawnAnimals: function(){
-          if (this.spawnAnimals)
+          if (this.spawnAnimals != 'false')
             this.spawnAnimals = false
           else
             this.spawnAnimals = true
       },
       updateSpawnMonsters: function(){
-          if (this.spawnMonsters)
+          if (this.spawnMonsters != 'false')
             this.spawnMonsters = false
           else
             this.spawnMonsters = true
       },
       updateSpawnNpcs: function(){
-          if (this.spawnNpcs)
+          if (this.spawnNpcs != 'false')
             this.spawnNpcs = false
           else
             this.spawnNpcs = true
@@ -481,7 +481,7 @@ export default {
             document.getElementById("view_distance").value = this.viewDistance
       },
       updateBroadcastConsoleOp: function(){
-          if (this.broadcastConsoleOp)
+          if (this.broadcastConsoleOp != 'false')
             this.broadcastConsoleOp = false
           else
             this.broadcastConsoleOp = true
@@ -576,5 +576,32 @@ hr {
 }
 input{
     text-align: center;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 </style>
