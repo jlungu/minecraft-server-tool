@@ -13,11 +13,11 @@
 #### A site visitor can modify any aspect of the server they wish through the 'Downloads' page. Users can simply click/enter the fields they wish to add to your minecraft server, hit the download button, and voila! A script is downloaded that will set up the server automatically!
 #### The script was written in Powershell, and goes through all the necessary steps! No hassle at all!
 
-# Image Sources
-#### HOME PAGE
-#### Grass Block - https://icon-library.com/icon/minecraft-block-icon-5.html
-#### Creeper Block - https://iconarchive.com/show/minecraft-icons-by-chrisl21.html
-#### Wood Block - https://www.hiclipart.com/free-transparent-background-png-clipart-qmjth
-#### DOWNLOADS PAGE
-#### Diamond Pickaxe - https://www.pngegg.com/en/png-fnajp
-#### Iron Axe - https://www.pngegg.com/en/png-fnajs
+#### Image Sources
+##### HOME PAGE
+###### Grass Block - https://icon-library.com/icon/minecraft-block-icon-5.html
+###### Creeper Block - https://iconarchive.com/show/minecraft-icons-by-chrisl21.html
+###### Wood Block - https://www.hiclipart.com/free-transparent-background-png-clipart-qmjth
+##### DOWNLOADS PAGE
+###### Diamond Pickaxe - https://www.pngegg.com/en/png-fnajp
+###### Iron Axe - https://www.pngegg.com/en/png-fnajs
