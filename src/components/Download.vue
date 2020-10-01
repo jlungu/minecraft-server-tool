@@ -12,7 +12,15 @@
             <div class="col-sm-2"></div>
             <div class="col-sm-4">
                 <div class="gamemode option">
-                    <h4>Gamemode</h4>
+                    <popper
+                        trigger="hover"
+                        :options="{
+                            placement: 'top',
+                            modifiers: { offset: { offset: '0,10px' } }
+                    }">
+                        <h4 class="popper">Defines the mode of gameplay.</h4>
+                        <h4 slot="reference">Gamemode</h4>
+                    </popper>
                     <div class="form-check-inline">
                         <input class="form-check-input" @change="updateGamemode" type="radio" name="gamemodeRatios" id="creative" value="option1">
                         <label class="form-check-label" for="exampleRadios2">
@@ -39,7 +47,15 @@
                     </div>
                 </div>
                 <div class="hardcore option">
-                    <h4>Hardcore</h4>
+                    <popper
+                        trigger="hover"
+                        :options="{
+                            placement: 'top',
+                            modifiers: { offset: { offset: '0,10px' } }
+                    }">
+                        <h4 class="popper">If turned on, server difficulty is ignored and set to hard and players are set to spectator mode if they die. You only get one life.</h4>
+                        <h4 slot="reference">Hardcore</h4>
+                    </popper>
                     <div class="form-check-inline">
                         <input class="form-check-input" @change="updateHardcore" type="radio" name="hardcoreRatios" id="HCYes" value="option1">
                         <label class="form-check-label" for="exampleRadios2">
@@ -54,7 +70,15 @@
                     </div>
                 </div>
                 <div class="max_players option">
-                    <h4>Max Players</h4>
+                    <popper
+                        trigger="hover"
+                        :options="{
+                            placement: 'top',
+                            modifiers: { offset: { offset: '0,10px' } }
+                    }">
+                        <h4 class="popper">The maximum number of players that can play on the server at the same time. Note that more players on the server consume more resources.</h4>
+                        <h4 slot="reference">Max Players</h4>
+                    </popper>
                     <div class="form-group col-md-3" id="max_players_input">
                         <label for="inputZip"></label>
                         <input type="text" @input="updateMaxPlayers" class="form-control" id="max_players" value="20">
@@ -63,7 +87,15 @@
             </div>
             <div class="col-sm-4">
                 <div class="difficulty option">
-                    <h4>Difficulty</h4>
+                    <popper
+                        trigger="hover"
+                        :options="{
+                            placement: 'top',
+                            modifiers: { offset: { offset: '0,10px' } }
+                    }">
+                        <h4 class="popper">Defines the difficulty (such as damage dealt by mobs and the way hunger and poison affects players) of the server.</h4>
+                        <h4 slot="reference">Difficulty</h4>
+                    </popper>
                     <div class="form-check-inline" >
                         <input class="form-check-input" type="radio" name="difficultyRatios" id="peaceful" value="option2">
                         <label class="form-check-label" for="exampleRadios2">
@@ -90,7 +122,15 @@
                     </div>
                 </div>
                 <div class="pvp option">
-                    <h4>PvP</h4>
+                    <popper
+                        trigger="hover"
+                        :options="{
+                            placement: 'top',
+                            modifiers: { offset: { offset: '0,10px' } }
+                    }">
+                        <h4 class="popper">When turned on, players can deal damage to, and kill one another.</h4>
+                        <h4 slot="reference">PvP</h4>
+                    </popper>
                     <div class="form-check-inline">
                         <input class="form-check-input" @change="updatePvp" type="radio" name="pvpRadios" id="PvPYes" value="option2" checked>
                         <label class="form-check-label" for="exampleRadios2">
@@ -105,7 +145,15 @@
                     </div>
                 </div>
                 <div class="motd option">
-                    <h4>Server Message</h4>
+                    <popper
+                        trigger="hover"
+                        :options="{
+                            placement: 'top',
+                            modifiers: { offset: { offset: '0,10px' } }
+                    }">
+                        <h4 class="popper">This is the message that is displayed in the server list in the multiplayer menu, below the name.</h4>
+                        <h4 slot="reference">Server Message</h4>
+                    </popper>
                     <div class="form-group col-md-8" id="server_mssg">
                         <label for="inputZip"></label>
                         <input type="text" @input="updateMessage" class="form-control" id="inputZip" value="A Minecraft Server" placeholder="How about a nice greeting?">
@@ -263,10 +311,16 @@
 </template>
 
 <script>
+import Popper from 'vue-popperjs';
+import 'vue-popperjs/dist/vue-popper.css';
+
 export default {
   name: 'download',
   props: {
     msg: String
+  },
+  components: {
+      'popper': Popper
   },
   data: function() {
       return{
@@ -294,7 +348,7 @@ export default {
             spawnNpcs: 'true',
             spawnProtection: 16,
             viewDistance: 10,
-            broadcastConsoleOp: 'true'
+            broadcastConsoleOp: 'true',
       }
   },
   methods: {
