@@ -12,6 +12,7 @@
             <div class="col-sm-2"></div>
             <div class="col-sm-4">
                 <div class="gamemode option">
+                    <h4 slot="reference" style="display: inline">Gamemode </h4>
                     <popper
                         trigger="hover"
                         :options="{
@@ -19,9 +20,9 @@
                             modifiers: { offset: { offset: '0,10px' } }
                     }">
                         <h4 class="popper">Defines the mode of gameplay.</h4>
-                        <h4 slot="reference">Gamemode</h4>
-                    </popper>
-                    <div class="form-check-inline">
+                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                    </popper><br>
+                    <div class="form-check-inline" style="padding-top: 5px">
                         <input class="form-check-input" @change="updateGamemode" type="radio" name="gamemodeRatios" id="creative" value="option1">
                         <label class="form-check-label" for="exampleRadios2">
                             Creative
@@ -47,6 +48,7 @@
                     </div>
                 </div>
                 <div class="hardcore option">
+                    <h4 slot="reference" style="display: inline">Hardcore </h4>
                     <popper
                         trigger="hover"
                         :options="{
@@ -54,9 +56,9 @@
                             modifiers: { offset: { offset: '0,10px' } }
                     }">
                         <h4 class="popper">If turned on, server difficulty is ignored and set to hard and players are set to spectator mode if they die. You only get one life.</h4>
-                        <h4 slot="reference">Hardcore</h4>
-                    </popper>
-                    <div class="form-check-inline">
+                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                    </popper><br>
+                    <div class="form-check-inline" style="padding-top: 5px">
                         <input class="form-check-input" @change="updateHardcore" type="radio" name="hardcoreRatios" id="HCYes" value="option1">
                         <label class="form-check-label" for="exampleRadios2">
                             Yes
@@ -70,6 +72,7 @@
                     </div>
                 </div>
                 <div class="max_players option">
+                    <h4 slot="reference" style="display: inline">Max Players </h4>
                     <popper
                         trigger="hover"
                         :options="{
@@ -77,9 +80,9 @@
                             modifiers: { offset: { offset: '0,10px' } }
                     }">
                         <h4 class="popper">The maximum number of players that can play on the server at the same time. Note that more players on the server consume more resources.</h4>
-                        <h4 slot="reference">Max Players</h4>
-                    </popper>
-                    <div class="form-group col-md-3" id="max_players_input">
+                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                    </popper><br>
+                    <div class="form-group col-md-3" id="max_players_input" style="padding-top: 6px">
                         <label for="inputZip"></label>
                         <input type="text" @input="updateMaxPlayers" class="form-control" id="max_players" value="20">
                     </div>
@@ -87,6 +90,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="difficulty option">
+                    <h4 slot="reference" style="display: inline">Difficulty </h4>
                     <popper
                         trigger="hover"
                         :options="{
@@ -94,9 +98,9 @@
                             modifiers: { offset: { offset: '0,10px' } }
                     }">
                         <h4 class="popper">Defines the difficulty (such as damage dealt by mobs and the way hunger and poison affects players) of the server.</h4>
-                        <h4 slot="reference">Difficulty</h4>
-                    </popper>
-                    <div class="form-check-inline" >
+                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                    </popper><br>
+                    <div class="form-check-inline" style="padding-top: 5px">
                         <input class="form-check-input" type="radio" name="difficultyRatios" id="peaceful" value="option2">
                         <label class="form-check-label" for="exampleRadios2">
                             Peaceful
@@ -122,6 +126,7 @@
                     </div>
                 </div>
                 <div class="pvp option">
+                    <h4 slot="reference" style="display: inline">PvP </h4>
                     <popper
                         trigger="hover"
                         :options="{
@@ -129,9 +134,9 @@
                             modifiers: { offset: { offset: '0,10px' } }
                     }">
                         <h4 class="popper">When turned on, players can deal damage to, and kill one another.</h4>
-                        <h4 slot="reference">PvP</h4>
-                    </popper>
-                    <div class="form-check-inline">
+                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                    </popper><br>
+                    <div class="form-check-inline" style="padding-top: 5px">
                         <input class="form-check-input" @change="updatePvp" type="radio" name="pvpRadios" id="PvPYes" value="option2" checked>
                         <label class="form-check-label" for="exampleRadios2">
                             On
@@ -145,6 +150,7 @@
                     </div>
                 </div>
                 <div class="motd option">
+                    <h4 slot="reference" style="display: inline">Server Message </h4>
                     <popper
                         trigger="hover"
                         :options="{
@@ -152,9 +158,9 @@
                             modifiers: { offset: { offset: '0,10px' } }
                     }">
                         <h4 class="popper">This is the message that is displayed in the server list in the multiplayer menu, below the name.</h4>
-                        <h4 slot="reference">Server Message</h4>
-                    </popper>
-                    <div class="form-group col-md-8" id="server_mssg">
+                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                    </popper><br>
+                    <div class="form-group col-md-8" id="server_mssg" style="padding-top: 6px">
                         <label for="inputZip"></label>
                         <input type="text" @input="updateMessage" class="form-control" id="inputZip" value="A Minecraft Server" placeholder="How about a nice greeting?">
                     </div>
@@ -557,6 +563,7 @@ export default {
 .download_div{
     -webkit-animation: fadeIn 1.7s;
     animation: fadeIn 1.7s;
+    width: 99%;
 }
 #advanced_btn{
     margin-bottom: 1%;
@@ -630,32 +637,5 @@ hr {
 }
 input{
     text-align: center;
-}
-
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -60px;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
 }
 </style>
