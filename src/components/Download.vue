@@ -175,29 +175,65 @@
                     <div class="col-sm-4">
                         <div class="col-sm-12" style="text-align: center;">
                             <div class="level_seed option">
-                                <h4>Level Seed</h4>
-                                <div class="form-group col-sm-10" id="level_seed_input" style="display: inline-block;">
+                                <h4 slot="reference" style="display: inline">Level Seed </h4>
+                                <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                }">
+                                    <h4 class="popper">Sets a world seed for the player's world. The world generation is directly determined by the seed. The world generates with a random seed if left blank.</h4>
+                                    <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                                </popper><br>
+                                <div class="form-group col-sm-10" id="level_seed_input" style="display: inline-block; padding-top: 6px;">
                                     <label for="inputZip"></label>
                                     <input type="text" @input="updateLevelSeed" class="form-control" id="level_seed">
                                 </div>
                             </div>
                             <div class="option">
-                                <h4>Max Build Height</h4>
-                                <div class="form-group col-md-4" id="max_build_height_input" style="display: inline-block;">
+                                <h4 slot="reference" style="display: inline">Max Build Height </h4>
+                                <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                }">
+                                    <h4 class="popper">The maximum height allowed for building. Terrain may still naturally generate above a low height limit. 256 is the maximum possible, it also has to be a multiple of 8.</h4>
+                                    <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                                </popper><br>
+                                <div class="form-group col-md-4" id="max_build_height_input" style="display: inline-block; padding-top: 6px;">
                                     <label for="inputZip"></label>
                                     <input type="text" @input="updateMaxBuildHeight" class="form-control" id="max_build_height" value="256">
                                 </div>
                             </div>
                             <div class="option">
-                                <h4>Player Idle</h4>
-                                <div class="form-group col-md-3" id="player_idle_input" style="display: inline-block;">
+                                <h4 slot="reference" style="display: inline">Player Idle </h4>
+                                <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                }">
+                                    <h4 class="popper">If non-zero, players are kicked from the server if they are idle for more than that many minutes.</h4>
+                                    <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                                </popper><br>
+                                <div class="form-group col-md-3" id="player_idle_input" style="display: inline-block; padding-top: 6px;">
                                     <label for="inputZip"></label>
                                     <input type="text" @input="updatePlayerIdle" class="form-control" id="player_idle" value="0">
                                 </div>
                             </div>
                             <div class="option">
-                                <h4>View Distance</h4>
-                                <div class="form-group col-md-3" id="view_distance_input" style="display: inline-block;">
+                                <h4 slot="reference" style="display: inline">View Distance </h4>
+                                <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                }">
+                                    <h4 class="popper">Sets the amount of world data the server sends the client, measured in chunks in each direction of the player (radius, not diameter). It determines the server-side viewing distance.</h4>
+                                    <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                                </popper><br>
+                                <div class="form-group col-md-3" id="view_distance_input" style="display: inline-block; padding-top: 6px;">
                                     <label for="inputZip"></label>
                                     <input type="text" @input="updateViewDistance" class="form-control" id="view_distance" value="10">
                                 </div>
@@ -205,36 +241,71 @@
                         </div>
                         <div class="row" style="text-align: left;">
                             <div class="col-sm-3"></div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-8" style="padding-left: 30px;">
                                 <div class="form-check advanced_checkbox">
-                                <input class="form-check-input" type="checkbox" name="gridRadios" id="allow_flight" value="option1" @change="updateAllowFlight">
-                                <label class="form-check-label check_label" for="gridRadios1">
-                                    Allow Flight
-                                </label>
-                                </div>
-                                <div class="form-check advanced_checkbox">
-                                <input class="form-check-input" type="checkbox" name="gridRadios" id="allow_nether" value="option2" checked @change="updateAllowNether">
-                                <label class="form-check-label check_label" for="gridRadios2">
-                                    Allow Nether
-                                </label>
+                                    <input class="form-check-input" type="checkbox" name="gridRadios" id="broadcast_console_op" value="option3" checked @change="updateBroadcastConsoleOp">
+                                    <h4 class="form-check-label check_label" for="gridRadios2" style="display: inline">Broadcast Console to OP</h4>
+                                    <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                    }">
+                                        <h4 class="popper">Send console command outputs to all online operators.</h4>
+                                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px; width: 25px;" />
+                                    </popper><br>
                                 </div>
                                 <div class="form-check advanced_checkbox">
                                     <input class="form-check-input" type="checkbox" name="gridRadios" id="enable_cmd_block" value="option3" @change="updateEnableCmdBlock">
-                                    <label class="form-check-label check_label" for="gridRadios3">
-                                        Enable Command Block
-                                    </label>
+                                    <h4 class="form-check-label check_label" for="gridRadios3" style="display: inline">Enable Command Block</h4>
+                                    <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                    }">
+                                        <h4 class="popper">Enables command blocks</h4>
+                                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px; width: 25px;" />
+                                    </popper><br>
                                 </div>
                                 <div class="form-check advanced_checkbox">
                                     <input class="form-check-input" type="checkbox" name="gridRadios" id="force_gamemode" value="option3" @change="updateForceGamemode">
-                                    <label class="form-check-label check_label" for="gridRadios3">
-                                        Force Gamemode
-                                    </label>
+                                    <h4 class="form-check-label check_label" for="gridRadios2" style="display: inline">Force Gamemode</h4>
+                                    <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                    }">
+                                        <h4 class="popper">Force players to join in the default game mode. The default gamemode is the one you chose at the top of this page.</h4>
+                                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px; width: 25px;" />
+                                    </popper><br>
                                 </div>
-                                 <div class="form-check advanced_checkbox">
-                                    <input class="form-check-input" type="checkbox" name="gridRadios" id="broadcast_console_op" value="option3" checked @change="updateBroadcastConsoleOp">
-                                    <label class="form-check-label check_label" for="gridRadios3">
-                                        Broadcast Console to OP
-                                    </label>
+                                <div class="form-check advanced_checkbox">
+                                    <input class="form-check-input" type="checkbox" name="gridRadios" id="allow_nether" value="option2" checked @change="updateAllowNether">
+                                    <h4 class="form-check-label check_label" for="gridRadios2" style="display: inline">Allow Nether</h4>
+                                    <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                    }">
+                                        <h4 class="popper">Allows players to travel to the Nether.</h4>
+                                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px; width: 25px;" />
+                                    </popper><br>
+                                </div>
+                                <div class="form-check advanced_checkbox">
+                                    <input class="form-check-input" type="checkbox" name="gridRadios" id="allow_flight" value="option1" @change="updateAllowFlight">
+                                    <h4 class="form-check-label check_label" for="gridRadios1" style="display: inline">Allow Flight</h4>
+                                    <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                    }">
+                                        <h4 class="popper">Allows users to use flight on the server while in Survival mode, if they have a mod that provides flight installed.</h4>
+                                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px; width: 25px;" />
+                                    </popper><br>
                                 </div>
                             </div>
                         </div>
@@ -242,66 +313,137 @@
                     <div class="col-sm-4">
                         <div class="col-sm-12" style="text-align: center;">
                             <div class="option">
-                                <h4>Level Name</h4>
-                                <div class="form-group col-sm-10" id="level_name_input" style="display: inline-block;">
+                                <h4 slot="reference" style="display: inline">Level Name </h4>
+                                <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                }">
+                                    <h4 class="popper">The "level-name" value is used as the world name and its folder name.</h4>
+                                    <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                                </popper><br>
+                                <div class="form-group col-sm-10" id="level_name_input" style="display: inline-block; padding-top: 6px;">
                                     <label for="inputZip"></label>
                                     <input type="text" @input="updateLevelName" class="form-control" id="level_name" value="world">
                                 </div>
                             </div>
                             <div class="option">
-                                <h4>Max World Size</h4>
-                                <div class="form-group col-md-4" id="max_world_size_input" style="display: inline-block;">
+                                <h4 slot="reference" style="display: inline">Max World Size </h4>
+                                <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                }">
+                                    <h4 class="popper">This sets the maximum possible size in blocks, expressed as a radius, that the world border can obtain.</h4>
+                                    <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                                </popper><br>
+                                <div class="form-group col-md-4" id="max_world_size_input" style="display: inline-block; padding-top: 6px;">
                                     <label for="inputZip"></label>
                                     <input type="text" @input="updateMaxWorldSize" class="form-control" id="max_world_size" value="29999984">
                                 </div>
                             </div>
                             <div class="option">
-                                <h4>Resource Pack</h4>
-                                <div class="form-group col-sm-10" id="resource_pack_input" style="display: inline-block;">
+                                <h4 slot="reference" style="display: inline">Resource Pack </h4>
+                                <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                }">
+                                    <h4 class="popper">Optional URI to a resource pack. (e.g. http://somedomain.com/somepack.zip?someparam=somevalue)</h4>
+                                    <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                                </popper><br>
+                                <div class="form-group col-sm-10" id="resource_pack_input" style="display: inline-block; padding-top: 6px;">
                                     <label for="inputZip"></label>
                                     <input type="text" @input="updateResourcePack" class="form-control" id="resource_pack">
                                 </div>
                             </div>
                             <div class="option">
-                                <h4>Spawn Protection</h4>
-                                <div class="form-group col-md-3" id="spawn_protection_input" style="display: inline-block;">
+                                <h4 slot="reference" style="display: inline">Spawn Protection </h4>
+                                <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                }">
+                                    <h4 class="popper">Determines the side length of the square spawn protection area as 2x+1. Setting this to 0 disables the spawn protection. A value of 1 protects a 3×3 square centered on the spawn point. 2 protects 5×5, etc.</h4>
+                                    <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                                </popper><br>
+                                <div class="form-group col-md-3" id="spawn_protection_input" style="display: inline-block; padding-top: 6px;">
                                     <label for="inputZip"></label>
                                     <input type="text" @input="updateSpawnProtection" class="form-control" id="spawn_protection" value="16">
                                 </div>
                             </div>
                         </div>
                          <div class="row" style="text-align: left;">
-                            <div class="col-sm-3"></div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-8" style="left: -10px;">
                         <div class="form-check advanced_checkbox">
                             <input class="form-check-input" type="checkbox" name="gridRadios" id="genereate_structures" value="option3" checked @change='updateGenerateStructures'>
-                            <label class="form-check-label check_label" for="gridRadios3">
-                                Generate Structures
-                            </label>
+                            <h4 class="form-check-label check_label" for="gridRadios2" style="display: inline">Generate Structures</h4>
+                                    <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                    }">
+                                        <h4 class="popper">Defines whether structures (such as villages) can be generated.</h4>
+                                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px; width: 25px;" />
+                                    </popper><br>
                         </div>
                         <div class="form-check advanced_checkbox">
                             <input class="form-check-input" type="checkbox" name="gridRadios" id="spawn_monsters" value="option3" checked @change="updateSpawnMonsters">
-                            <label class="form-check-label check_label" for="gridRadios3">
-                                Spawn Monsters
-                            </label>
+                            <h4 class="form-check-label check_label" for="gridRadios2" style="display: inline">Spawn Monsters</h4>
+                                    <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                    }">
+                                        <h4 class="popper">Determines if monsters can spawn.</h4>
+                                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px; width: 25px;" />
+                                    </popper><br>
                         </div>
                         <div class="form-check advanced_checkbox">
                             <input class="form-check-input" type="checkbox" name="gridRadios" id="spawn_animals" value="option3" checked @change="updateSpawnAnimals">
-                            <label class="form-check-label check_label" for="gridRadios3">
-                                Spawn Animals
-                            </label>
+                            <h4 class="form-check-label check_label" for="gridRadios2" style="display: inline">Spawn Animals</h4>
+                                    <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                    }">
+                                        <h4 class="popper">Determines if animals can spawn.</h4>
+                                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px; width: 25px;" />
+                                    </popper><br>
                         </div>
                         <div class="form-check advanced_checkbox">
                             <input class="form-check-input" type="checkbox" name="gridRadios" id="spawn_npcs" value="option3" checked @change="updateSpawnNpcs">
-                            <label class="form-check-label check_label" for="gridRadios3">
-                                Spawn NPCs
-                            </label>
+                            <h4 class="form-check-label check_label" for="gridRadios2" style="display: inline">Spawn NPC's</h4>
+                                    <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                    }">
+                                        <h4 class="popper">Determines whether villagers can spawn.</h4>
+                                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px; width: 25px;" />
+                                    </popper><br>
                         </div>
                          <div class="form-check advanced_checkbox">
                             <input class="form-check-input" type="checkbox" name="gridRadios" id="enable_status" value="option3" checked @change="updateEnableStatus">
-                            <label class="form-check-label check_label" for="gridRadios3">
-                                Enable Status
-                            </label>
+                            <h4 class="form-check-label check_label" for="gridRadios2" style="display: inline">Enable Status</h4>
+                                    <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                    }">
+                                        <h4 class="popper">Makes the server appear as "online" on the server list. If set to false, it will suppress replies from clients. This means it will appear as offline, but will still accept connections. </h4>
+                                        <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px; width: 25px;" />
+                                    </popper><br>
                         </div>
                             </div>
                         </div>
