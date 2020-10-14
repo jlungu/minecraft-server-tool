@@ -631,11 +631,17 @@ export default {
           this.levelName = event.target.value
       },
       updateMaxBuildHeight: function(event){
+          if (event.target.value == "")
+            document.getElementById("max_build_height").className = "form-control is-invalid"
+          else
+            document.getElementById("max_build_height").className = "form-control"
           let isnum = /^\d+$/.test(event.target.value);
           if (isnum || event.target.value == "")
             this.maxBuildHeight = event.target.value;
           else
             document.getElementById("max_build_height").value = this.maxBuildHeight
+        if(Number(event.target.value) == 0 || Number(event.target.value) > 256)
+            document.getElementById("max_build_height").className = "form-control is-invalid"
       },
       updateMaxWorldSize: function(event){
           let isnum = /^\d+$/.test(event.target.value);
