@@ -101,25 +101,25 @@
                         <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
                     </popper><br>
                     <div class="form-check-inline" style="padding-top: 5px">
-                        <input class="form-check-input" type="radio" name="difficultyRatios" id="peaceful" value="option2">
+                        <input class="form-check-input" type="radio" name="difficultyRatios" id="peaceful" value="option2" :disabled="hardcore=='true'">
                         <label class="form-check-label" for="exampleRadios2">
                             Peaceful
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="difficultyRatios" id="easy" value="option2" checked>
+                        <input class="form-check-input" type="radio" name="difficultyRatios" id="easy" value="option2" :disabled="hardcore=='true'" checked>
                         <label class="form-check-label" for="exampleRadios2">
                             Easy
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="difficultyRatios" id="normal" value="option2">
+                        <input class="form-check-input" type="radio" name="difficultyRatios" id="normal" value="option2" :disabled="hardcore=='true'">
                         <label class="form-check-label" for="exampleRadios2">
                             Normal
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="difficultyRatios" id="hard" value="option2">
+                        <input class="form-check-input" type="radio" name="difficultyRatios" id="hard" value="option2" :disabled="hardcore=='true'">
                         <label class="form-check-label" for="exampleRadios2">
                             Hard
                         </label>
@@ -570,10 +570,14 @@ export default {
            this.gamemode = event.target.id
       },
       updateHardcore: function(event){
-          if (event.target.id == "HCYes")
-           this.hardcore = "true"
-           else if (event.target.id == "HCNo")
+        if (event.target.id == "HCYes") {
+            this.hardcore = "true"
+            this.difficulty = "hard"
+        }
+        else if (event.target.id == "HCNo") {
             this.hardcore = "false"
+            document.getElementById('hard').checked = true
+        }
       },
       updateDifficulty: function(event){
            this.difficulty = event.target.id
@@ -627,20 +631,36 @@ export default {
           this.levelName = event.target.value
       },
       updateMaxBuildHeight: function(event){
+          if (event.target.value == "")
+            document.getElementById("max_build_height").className = "form-control is-invalid"
+          else
+            document.getElementById("max_build_height").className = "form-control"
           let isnum = /^\d+$/.test(event.target.value);
           if (isnum || event.target.value == "")
             this.maxBuildHeight = event.target.value;
           else
             document.getElementById("max_build_height").value = this.maxBuildHeight
+        if(Number(event.target.value) == 0 || Number(event.target.value) > 256)
+            document.getElementById("max_build_height").className = "form-control is-invalid"
       },
       updateMaxWorldSize: function(event){
+          if (event.target.value == "")
+            document.getElementById("max_world_size").className = "form-control is-invalid"
+          else
+            document.getElementById("max_world_size").className = "form-control"
           let isnum = /^\d+$/.test(event.target.value);
           if (isnum || event.target.value == "")
             this.maxWorldSize = event.target.value;
           else
             document.getElementById("max_world_size").value = this.maxWorldSize
+        if(Number(event.target.value) == 0 || Number(event.target.value) > 29999984)
+            document.getElementById("max_world_size").className = "form-control is-invalid"
       },
       updatePlayerIdle: function(event){
+          if (event.target.value == "")
+            document.getElementById("player_idle").className = "form-control is-invalid"
+          else
+            document.getElementById("player_idle").className = "form-control"
           let isnum = /^\d+$/.test(event.target.value);
           if (isnum || event.target.value == "")
             this.playerIdle = event.target.value;
@@ -676,11 +696,17 @@ export default {
             document.getElementById("spawn_protection").value = this.spawnProtection
       },
       updateViewDistance: function(event){
+          if (event.target.value == "")
+            document.getElementById("view_distance").className = "form-control is-invalid"
+          else
+            document.getElementById("view_distance").className = "form-control"
           let isnum = /^\d+$/.test(event.target.value);
           if (isnum || event.target.value == "")
             this.viewDistance = event.target.value;
           else
             document.getElementById("view_distance").value = this.viewDistance
+        if(Number(event.target.value) < 3 || Number(event.target.value) > 32)
+            document.getElementById("view_distance").className = "form-control is-invalid"
       },
       updateBroadcastConsoleOp: function(){
           if (this.broadcastConsoleOp != 'false')
