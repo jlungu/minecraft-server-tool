@@ -644,11 +644,17 @@ export default {
             document.getElementById("max_build_height").className = "form-control is-invalid"
       },
       updateMaxWorldSize: function(event){
+          if (event.target.value == "")
+            document.getElementById("max_world_size").className = "form-control is-invalid"
+          else
+            document.getElementById("max_world_size").className = "form-control"
           let isnum = /^\d+$/.test(event.target.value);
           if (isnum || event.target.value == "")
             this.maxWorldSize = event.target.value;
           else
             document.getElementById("max_world_size").value = this.maxWorldSize
+        if(Number(event.target.value) == 0 || Number(event.target.value) > 29999984)
+            document.getElementById("max_world_size").className = "form-control is-invalid"
       },
       updatePlayerIdle: function(event){
           let isnum = /^\d+$/.test(event.target.value);
