@@ -657,6 +657,10 @@ export default {
             document.getElementById("max_world_size").className = "form-control is-invalid"
       },
       updatePlayerIdle: function(event){
+          if (event.target.value == "")
+            document.getElementById("player_idle").className = "form-control is-invalid"
+          else
+            document.getElementById("player_idle").className = "form-control"
           let isnum = /^\d+$/.test(event.target.value);
           if (isnum || event.target.value == "")
             this.playerIdle = event.target.value;
@@ -692,11 +696,17 @@ export default {
             document.getElementById("spawn_protection").value = this.spawnProtection
       },
       updateViewDistance: function(event){
+          if (event.target.value == "")
+            document.getElementById("view_distance").className = "form-control is-invalid"
+          else
+            document.getElementById("view_distance").className = "form-control"
           let isnum = /^\d+$/.test(event.target.value);
           if (isnum || event.target.value == "")
             this.viewDistance = event.target.value;
           else
             document.getElementById("view_distance").value = this.viewDistance
+        if(Number(event.target.value) < 3 || Number(event.target.value) > 32)
+            document.getElementById("view_distance").className = "form-control is-invalid"
       },
       updateBroadcastConsoleOp: function(){
           if (this.broadcastConsoleOp != 'false')
