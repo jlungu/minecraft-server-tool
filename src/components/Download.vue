@@ -101,25 +101,25 @@
                         <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
                     </popper><br>
                     <div class="form-check-inline" style="padding-top: 5px">
-                        <input class="form-check-input" type="radio" name="difficultyRatios" id="peaceful" value="option2">
+                        <input class="form-check-input" type="radio" name="difficultyRatios" id="peaceful" value="option2" :disabled="hardcore=='true'">
                         <label class="form-check-label" for="exampleRadios2">
                             Peaceful
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="difficultyRatios" id="easy" value="option2" checked>
+                        <input class="form-check-input" type="radio" name="difficultyRatios" id="easy" value="option2" :disabled="hardcore=='true'" checked>
                         <label class="form-check-label" for="exampleRadios2">
                             Easy
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="difficultyRatios" id="normal" value="option2">
+                        <input class="form-check-input" type="radio" name="difficultyRatios" id="normal" value="option2" :disabled="hardcore=='true'">
                         <label class="form-check-label" for="exampleRadios2">
                             Normal
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="difficultyRatios" id="hard" value="option2">
+                        <input class="form-check-input" type="radio" name="difficultyRatios" id="hard" value="option2" :disabled="hardcore=='true'">
                         <label class="form-check-label" for="exampleRadios2">
                             Hard
                         </label>
@@ -570,10 +570,14 @@ export default {
            this.gamemode = event.target.id
       },
       updateHardcore: function(event){
-          if (event.target.id == "HCYes")
-           this.hardcore = "true"
-           else if (event.target.id == "HCNo")
+        if (event.target.id == "HCYes") {
+            this.hardcore = "true"
+            this.difficulty = "hard"
+        }
+        else if (event.target.id == "HCNo") {
             this.hardcore = "false"
+            document.getElementById('hard').checked = true
+        }
       },
       updateDifficulty: function(event){
            this.difficulty = event.target.id
