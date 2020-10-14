@@ -689,6 +689,10 @@ export default {
             this.spawnNpcs = true
       },
       updateSpawnProtection: function(event){
+          if (event.target.value == "")
+            document.getElementById("spawn_protection").className = "form-control is-invalid"
+          else
+            document.getElementById("spawn_protection").className = "form-control"
           let isnum = /^\d+$/.test(event.target.value);
           if (isnum || event.target.value == "")
             this.spawnProtection = event.target.value;
