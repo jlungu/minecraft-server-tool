@@ -191,19 +191,19 @@
                                 </div>
                             </div>
                             <div class="option">
-                                <h4 slot="reference" style="display: inline">Max Build Height </h4>
+                                <h4 slot="reference" style="display: inline">Max World Size </h4>
                                 <popper
                                     trigger="hover"
                                     :options="{
                                         placement: 'top',
                                         modifiers: { offset: { offset: '0,10px' } }
                                 }">
-                                    <h4 class="popper">The maximum height allowed for building. Terrain may still naturally generate above a low height limit. 256 is the maximum possible, it also has to be a multiple of 8.</h4>
+                                    <h4 class="popper">This sets the maximum possible size in blocks, expressed as a radius, that the world border can obtain.</h4>
                                     <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
                                 </popper><br>
-                                <div class="form-group col-md-4" id="max_build_height_input" style="display: inline-block; padding-top: 6px;">
+                                <div class="form-group col-md-5" id="max_world_size_input" style="display: inline-block; padding-top: 6px;">
                                     <label for="inputZip"></label>
-                                    <input type="text" @input="updateMaxBuildHeight" class="form-control" id="max_build_height" value="256">
+                                    <input type="text" @input="updateMaxWorldSize" class="form-control" id="max_world_size" value="29999984">
                                 </div>
                             </div>
                             <div class="option">
@@ -313,38 +313,6 @@
                     <div class="col-sm-4">
                         <div class="col-sm-12" style="text-align: center;">
                             <div class="option">
-                                <h4 slot="reference" style="display: inline">Level Name </h4>
-                                <popper
-                                    trigger="hover"
-                                    :options="{
-                                        placement: 'top',
-                                        modifiers: { offset: { offset: '0,10px' } }
-                                }">
-                                    <h4 class="popper">The "level-name" value is used as the world name and its folder name.</h4>
-                                    <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
-                                </popper><br>
-                                <div class="form-group col-sm-10" id="level_name_input" style="display: inline-block; padding-top: 6px;">
-                                    <label for="inputZip"></label>
-                                    <input type="text" @input="updateLevelName" class="form-control" id="level_name" value="world">
-                                </div>
-                            </div>
-                            <div class="option">
-                                <h4 slot="reference" style="display: inline">Max World Size </h4>
-                                <popper
-                                    trigger="hover"
-                                    :options="{
-                                        placement: 'top',
-                                        modifiers: { offset: { offset: '0,10px' } }
-                                }">
-                                    <h4 class="popper">This sets the maximum possible size in blocks, expressed as a radius, that the world border can obtain.</h4>
-                                    <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
-                                </popper><br>
-                                <div class="form-group col-md-4" id="max_world_size_input" style="display: inline-block; padding-top: 6px;">
-                                    <label for="inputZip"></label>
-                                    <input type="text" @input="updateMaxWorldSize" class="form-control" id="max_world_size" value="29999984">
-                                </div>
-                            </div>
-                            <div class="option">
                                 <h4 slot="reference" style="display: inline">Resource Pack </h4>
                                 <popper
                                     trigger="hover"
@@ -358,6 +326,38 @@
                                 <div class="form-group col-sm-10" id="resource_pack_input" style="display: inline-block; padding-top: 6px;">
                                     <label for="inputZip"></label>
                                     <input type="text" @input="updateResourcePack" class="form-control" id="resource_pack">
+                                </div>
+                            </div>
+                            <div class="option">
+                                <h4 slot="reference" style="display: inline">Level Name </h4>
+                                <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                }">
+                                    <h4 class="popper">The "level-name" value is used as the world name and its folder name.</h4>
+                                    <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                                </popper><br>
+                                <div class="form-group col-md-5" id="level_name_input" style="display: inline-block; padding-top: 6px;">
+                                    <label for="inputZip"></label>
+                                    <input type="text" @input="updateLevelName" class="form-control" id="level_name" value="world">
+                                </div>
+                            </div>
+                            <div class="option">
+                                <h4 slot="reference" style="display: inline">Max Build Height </h4>
+                                <popper
+                                    trigger="hover"
+                                    :options="{
+                                        placement: 'top',
+                                        modifiers: { offset: { offset: '0,10px' } }
+                                }">
+                                    <h4 class="popper">The maximum height allowed for building. Terrain may still naturally generate above a low height limit. 256 is the maximum possible, it also has to be a multiple of 8.</h4>
+                                    <font-awesome-icon :icon="['fas', 'info-circle']" slot="reference" style="font-size: 20px" />
+                                </popper><br>
+                                <div class="form-group col-md-3" id="max_build_height_input" style="display: inline-block; padding-top: 6px;">
+                                    <label for="inputZip"></label>
+                                    <input type="text" @input="updateMaxBuildHeight" class="form-control" id="max_build_height" value="256">
                                 </div>
                             </div>
                             <div class="option">
@@ -689,6 +689,10 @@ export default {
             this.spawnNpcs = true
       },
       updateSpawnProtection: function(event){
+          if (event.target.value == "")
+            document.getElementById("spawn_protection").className = "form-control is-invalid"
+          else
+            document.getElementById("spawn_protection").className = "form-control"
           let isnum = /^\d+$/.test(event.target.value);
           if (isnum || event.target.value == "")
             this.spawnProtection = event.target.value;
