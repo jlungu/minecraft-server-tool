@@ -1,5 +1,4 @@
 # Minecraft Server Generating Tool
-## Easy MC Server - https://easymcserver.tech
 #### A simple way to get a minecraft server up and running in no time!
 
 ## An SBUHacks Hackathon Project
